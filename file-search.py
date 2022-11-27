@@ -1,8 +1,6 @@
 import os
 import re
 import sys
-import pydoc
-
 
 def search_file(full_file_path, search_term):
 	try:
@@ -30,11 +28,10 @@ def search_dir(file_path, search_term):
 			elif os.path.isdir(path):
 				output_str += search_dir(path, search_term)
 	except Exception as e:
-		print(e)
-		return output_str
+ 		return output_str
 	return output_str
 
 starting_directory = sys.argv[1]
 search_term = sys.argv[2]
 output_str = search_dir(starting_directory, search_term)
-pydoc.pager(output_str)
+print(output_str)
